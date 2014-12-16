@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Json message converter configuration -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <description>Handles HTTP requests of type application/json</description>
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Plain text message converter configuration -->
+    <bean id="plainMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <description>Handles HTTP requests of type text/plain</description>
+        <property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
+    </bean>
+
+</beans>
